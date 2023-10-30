@@ -10,10 +10,17 @@ from logic import make_empty_board
 if __name__ == '__main__':
     board = make_empty_board()
     winner = None
+    current_player = 'X'
+
     while winner == None:
-        print("TODO: take a turn!")
-        # TODO: Show the board to the user.
-        # TODO: Input a move from the player.
-        # TODO: Update the board.
-        # TODO: Update who's turn it is.
-        winner = 'X'  # FIXME
+        print_board(board) 
+        print(f"Player {current_player}'s turn:")
+        row, col = get_player_move()
+        update_board(board, row, col, current_player)  # Implement get_player_move() and   update_board() functions from previous response
+        winner = get_winner(board) 
+        current_player = other_player(current_player) 
+        
+        print_board(board)
+        print(f"Player {winner} wins!")
+
+      
